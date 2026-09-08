@@ -1,5 +1,5 @@
 """
-@module composition.seed_upsert
+@module composition.custom.seed_upsert
 
 arch-1 (PART_ARCHETYPES_PLAN): the upsert-changed-fields seed path.
 

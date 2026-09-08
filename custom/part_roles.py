@@ -1,7 +1,7 @@
 """
-@module composition.part_roles
+@module composition.custom.part_roles
 
-The ROLE VOCABULARY — extracted from motors.part_roles (arch-2,
+The ROLE VOCABULARY — extracted from motors.custom.part_roles (arch-2,
 PART_ARCHETYPES_PLAN §3.3) because it was always domain-general:
 roles span 5 domains, carry predicate checks whose missing data is
 UNASSESSED (never a pass), graded thresholds (functional floor /
@@ -10,15 +10,15 @@ row must state. The roles ARE the archetype's material-facing half.
 
 Motor-specific pieces (PART_ROLE_ASSIGNMENTS, part_role_report,
 screen_candidates over MotorPartDefinition) stayed in
-motors.part_roles, which re-exports these names so every existing
+motors.custom.part_roles, which re-exports these names so every existing
 import keeps working. History and the full rationale per role:
-see the original mag-17 docstring, preserved in motors.part_roles.
+see the original mag-17 docstring, preserved in motors.custom.part_roles.
 
-@consumers motors.part_roles (shim), motors.local_route,
-composition.archetype_basis, composition.selftest_composition
+@consumers motors.custom.part_roles (shim), motors.custom.local_route,
+composition.archetype_basis, composition.composition_selftest
 """
 
-from composition.data_refs import material_prop
+from composition.custom.data_refs import material_prop
 
 
 #: Roles are grouped by PHYSICAL DOMAIN (Dustin 2026-07-30:

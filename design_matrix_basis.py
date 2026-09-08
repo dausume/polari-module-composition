@@ -1,5 +1,5 @@
 """
-@module composition.design_matrix
+@module composition.design_matrix_basis
 
 arch-5: CANCELLATION AS DATA — the Axiomatic Design half of the
 archetype (practice map §3). The design matrix maps knobs (design
@@ -24,14 +24,14 @@ case wrong, so the matrix reports it as a finding whatever the
 classification.
 
 @consumers composition.archetype_basis, polariServer seed passes,
-composition.selftest_composition
+composition.composition_selftest
 """
 
 import json
 
 from objectTreeDecorators import treeObject, treeObjectInit
 
-from composition.data_refs import resolve_named
+from composition.custom.data_refs import resolve_named
 
 COUPLINGS = ('direct', 'inverse', 'both')
 

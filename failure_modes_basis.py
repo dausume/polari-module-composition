@@ -1,5 +1,5 @@
 """
-@module composition.failure_modes
+@module composition.failure_modes_basis
 
 arch-2: ONE failure-mode catalogue with TWO loci. Interface modes
 live on InterfaceDefinition rows and are DELETED when a promotion
@@ -17,7 +17,7 @@ polariServer seed passes
 
 from objectTreeDecorators import treeObject, treeObjectInit
 
-from composition.part_roles import DOMAINS  # noqa: F401 — same axis
+from composition.custom.part_roles import DOMAINS  # noqa: F401 — same axis
 
 LOCI = ('interface', 'bulk')
 

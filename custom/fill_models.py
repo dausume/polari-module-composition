@@ -1,12 +1,12 @@
 """
-@module composition.fill_models
+@module composition.custom.fill_models
 
 arch-3: FILL FACTOR IS A PROPERTY OF THE CONSTRUCTION, not of the
 wire (mag-26, requirement 2) — scramble, ordered-on-rigid-floor and
 ordered-nested are three different numbers from the same components.
 So the packing geometry lives in composition, keyed by the
 construction's fill class; motors re-imports it (extracted from
-motors.stator_construction, arch-3, same move as part_roles).
+motors.custom.stator_construction, arch-3, same move as part_roles).
 
 The physics is pure geometry and it is where two of the arc's
 sharpest findings live:
@@ -15,8 +15,8 @@ sharpest findings live:
 - a layer that SNAPS ON is a rigid floor, and rigid floors forbid
   nesting: ceiling 0.785 vs 0.907 before any wall is charged.
 
-@consumers motors.stator_construction (shim),
-composition.functional_basis, composition.selftest_composition
+@consumers motors.custom.stator_construction (shim),
+composition.functional_basis, composition.composition_selftest
 """
 
 import math

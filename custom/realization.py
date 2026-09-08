@@ -1,5 +1,5 @@
 """
-@module composition.realization
+@module composition.custom.realization
 
 arch-6: REALIZATION ROLLS UP, DERIVED — the answer to handover §5.5
 (do assemblies get realization levels?): yes, as the MINIMUM over
@@ -18,12 +18,12 @@ suggestion-over-evidence); this module only reports what is earned
 and WHAT ACT WOULD ADVANCE IT.
 
 @consumers composition.composition_api,
-composition.selftest_composition
+composition.composition_selftest
 """
 
 import json
 
-from composition.data_refs import named, resolve_named
+from composition.custom.data_refs import named, resolve_named
 from composition.node_basis import owned_interfaces
 
 REALIZATION_LEVELS = ('theoretical', 'literature-demonstrated',

@@ -1,14 +1,14 @@
 """
-@module composition.selftest_composition
+@module composition.composition_selftest
 
 Composition selftests (PART_ARCHETYPES_PLAN arch-1..). Standalone,
-fake-manager style: python3 -m composition.selftest_composition
+fake-manager style: python3 -m composition.composition_selftest
 (from polari-framework/ with PYTHONPATH=modules).
 """
 
 import types
 
-from composition.seed_upsert import (
+from composition.custom.seed_upsert import (
     diff_fields, upsert_seed_rows, upsert_seed_pairs,
 )
 
@@ -174,7 +174,7 @@ def _seed_mgr():
 def selftest_arch2():
     import json
 
-    from composition.data_refs import resolve_named
+    from composition.custom.data_refs import resolve_named
     from composition.node_basis import (
         CompositionNode, derive_level, composition_report,
     )
@@ -260,10 +260,10 @@ def selftest_arch2():
           rep['count'] == 3 and not rep['refusals'])
 
     print('\n-- arch-2: extraction + cross-module data agreement --')
-    from composition.part_roles import (
+    from composition.custom.part_roles import (
         ROLE_REQUIREMENTS as C_ROLES, role_viability as c_via,
     )
-    from motors.part_roles import (
+    from motors.custom.part_roles import (
         ROLE_REQUIREMENTS as M_ROLES, role_viability as m_via,
     )
     check('motors re-exports the SAME role engine (no fork)',
@@ -285,7 +285,7 @@ def selftest_arch2():
               fm[r]['locus'] == 'bulk' for r in bulk_refs))
     # Two modules asserting the same fact must AGREE (mag-25
     # lesson): equation refs must be live physics_equations names.
-    from motors.physics_equations import SEED_PHYSICS_EQUATIONS
+    from motors.physics_equations_seed import SEED_PHYSICS_EQUATIONS
     eq_names = {e['name'] for e in SEED_PHYSICS_EQUATIONS}
     cited = {s['equation_ref'] for s in cs.SEED_FAILURE_MODES
              if s['equation_ref']}
@@ -323,7 +323,7 @@ def selftest_arch2():
 def selftest_arch3():
     import types as _t
 
-    from composition.fill_models import (
+    from composition.custom.fill_models import (
         SCRAMBLE_FILL, fill_for_class, groove_viability,
     )
     from composition.functional_basis import variant_report
@@ -375,7 +375,7 @@ def selftest_arch3():
           and nested['packingCeilingNoWalls'] == 0.9069)
 
     # Cross-module agreement: motors uses THE SAME model object.
-    import motors.stator_construction as sc
+    import motors.custom.stator_construction as sc
     check('motors re-imports the SAME fill model (no fork)',
           sc.groove_viability is groove_viability
           and sc.SCRAMBLE_FILL is SCRAMBLE_FILL)
@@ -511,7 +511,7 @@ def selftest_arch5():
     import json
 
     from composition.archetype_basis import archetype_report
-    from composition.design_matrix import classify, matrix_report
+    from composition.design_matrix_basis import classify, matrix_report
     import composition.composition_seed as cs
 
     print('\n-- arch-5: design matrices (cancellation as data) --')
@@ -590,7 +590,7 @@ def selftest_arch5():
           'folklore' in archetype_report(m, 'at-bobbin')
           ['designMatrix']['refusal'])
     # Cross-module agreement (the mag-25 lesson, again).
-    from motors.physics_equations import SEED_PHYSICS_EQUATIONS
+    from motors.physics_equations_seed import SEED_PHYSICS_EQUATIONS
     eq_names = {e['name'] for e in SEED_PHYSICS_EQUATIONS}
     cited = {e['name'] for s in cs.SEED_PART_ARCHETYPES
              for e in json.loads(s['equation_refs_json'])}
@@ -618,8 +618,8 @@ def selftest_arch5():
 def selftest_arch6():
     import json
 
-    from composition.data_refs import material_prop
-    from composition.realization import (
+    from composition.custom.data_refs import material_prop
+    from composition.custom.realization import (
         REALIZATION_LEVELS, node_realization,
     )
 

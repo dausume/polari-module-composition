@@ -1,5 +1,5 @@
 """
-@module composition.data_refs
+@module composition.custom.data_refs
 
 Cross-module DATA references (PART_ARCHETYPES_PLAN §3.2 — the bizops
 rule). Composition imports no domain module; material and equation
@@ -7,7 +7,7 @@ references resolve by manager lookup at runtime, and when the module
 owning a table is not booted the resolver REFUSES honestly, naming
 the module, in the lazy-boot style — never a silent empty.
 
-@consumers composition.part_roles, composition.node_basis,
+@consumers composition.custom.part_roles, composition.node_basis,
 composition.composition_seed
 """
 
